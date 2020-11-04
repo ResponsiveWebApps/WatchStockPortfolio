@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Watch Stock</h1>
+
+<form action="{% url 'watch_stock' %}" class="form-inline my-2 my-lg-0" method="POST">
+    {% csrf_token %}
+    <input class="form-control mr-sm-2" type="search" placeholder="Add ticker to watchlist" aria-label="Search" name="ticker">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Watch Stock</button>
+</form>
+<br/>
+
+<table class="table table-borderedtable-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Ticker</th>
+        <th scope="col">Comapny Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Change</th>
+        <th scope="col">Percentage</th>
+        <th scope="col">x</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if ticker %}
+      
+      
+        {% for list_item in output %}
+        <tr>
+            <th scope="row"></th>
+            <td>{{ list_item.symbol }}</td>
+            <td>{{ list_item.companyName }}</td>
+            <td>{{ list_item.latestPrice }}</td>
+            <td>{{ list_item.change }}</td>
+            <td>{{ list_item.changePercent }}</td>
+            <td><a href="">x</a></td>
+        </tr>
+        {% endfor %}     
+      
+      {% endif %}
+      
+    </tbody>
+  </table>
+  
+<br/>
+<br/>
+
+
+{% endblock %}
