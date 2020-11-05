@@ -2,10 +2,12 @@ from django.shortcuts import render, redirect
 from .models import Stock
 from .forms import StockForm
 from django.contrib import messages
+# for post requests
+import requests
+import json
 
 def home(request):
-    import requests
-    import json
+    
 
     if request.method == 'POST':
         ticker = request.POST['ticker']
@@ -24,6 +26,21 @@ def home(request):
     
 def about(request):
     return render(request, 'about.html', {})
+
+def stock_info(request):
+    if request.method == 'POST':
+        ticker = request.POST['ticker']
+
+        api_request = requests.get("https://cloud.iexapis.com/stable/stock/{}/quote?token=pk_4f52bccf84804a059a27dfbc8c5a7e01".format(ticker))
+    
+        try: 
+            api = json.loads(api_request.content)
+        except Exception as e:
+            api = "Error..."
+        return render(request, 'stock_info.html', {'api': api})
+        
+    else:
+        return render(request, 'stock_info.html', {'ticker': "Enter a Ticker Symbol Above."})  
 
 def watch_stock(request):
     import requests

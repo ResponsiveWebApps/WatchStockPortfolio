@@ -27,7 +27,7 @@
                 <a class="nav-link" href="{% url 'watch_stock' %}">Watch Stock</a>
               </li>
           </ul>
-          <form action="{% url 'home' %}" class="form-inline my-2 my-lg-0" method="POST">
+          <form action="{% url 'stock_info' %}" class="form-inline my-2 my-lg-0" method="POST">
             {% csrf_token %}
             <input class="form-control mr-sm-2" type="search" placeholder="Get Stock Info" aria-label="Search" name="ticker">
             <button class="btn btn-primary my-2 my-sm-0" type="submit">Search Stock</button>

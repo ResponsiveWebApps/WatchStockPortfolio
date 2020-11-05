@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if ticker %}
+    {{ ticker }}
+{% endif %}
+
+{% if api %}
+
+    {% if api == "Error..." %}
+        There is a temporary error. Please try again.
+    {% else %}
+        
+        <h1>{{ api.companyName }}</h1>
+
+        Symbol: {{ api.symbol }}<br/>
+        Price: ${{ api.latestPrice }}<br/>
+        Change: {{ api.change }}<br/>
+        Percentage: {{ api.changePercent }}<br/>
+        YTD Change: {{ api.ytdChange }}<br/>
+        Yearly High: ${{ api.week52High }}<br/>
+        Yearly Low: ${{ api.week52Low }}<br/>
+        Market Cap: ${{ api.marketCap }}<br/>
+
+
+    {% endif %}
+
+
+{% endif %}
+
+{% endblock %}
