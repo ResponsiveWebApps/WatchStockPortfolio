@@ -55,7 +55,7 @@ def watch_stock(request):
         return render(request, 'watch_stock.html', {'ticker': ticker, 'output': output})
 
 def delete(request, symbol):
-    item = Stock.objects.get(ticker=symbol)
+    item = Stock.objects.get(ticker=str(symbol.lower())) # Needs to be lower case
     item.delete()
     messages.success(request, ("Stock unwatched"))
     return redirect(watch_stock)

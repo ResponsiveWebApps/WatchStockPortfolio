@@ -11,7 +11,7 @@
 <br/>
 
 <table class="table table-borderedtable-hover">
-    <thead class="thead-dark">
+    <thead class="thead-light">
       <tr>
         <th scope="col">#</th>
         <th scope="col">Ticker</th>
@@ -19,7 +19,7 @@
         <th scope="col">Price</th>
         <th scope="col">Change</th>
         <th scope="col">Percentage</th>
-        <th scope="col">x</th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -34,7 +34,7 @@
             <td>{{ list_item.latestPrice }}</td>
             <td>{{ list_item.change }}</td>
             <td>{{ list_item.changePercent }}</td>
-            <td><a href="">x</a></td>
+            <td><a href="{% url 'delete' list_item.symbol %}">x</a></td>
         </tr>
         {% endfor %}     
       
