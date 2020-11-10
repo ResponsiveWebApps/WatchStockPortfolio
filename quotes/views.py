@@ -46,8 +46,6 @@ def watch_stock(request):
     import requests
     import json
 
-    
-
     if request.method == 'POST':
        form  = StockForm(request.POST or None) 
 

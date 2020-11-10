@@ -13,6 +13,12 @@
         
         <h1>{{ api.companyName }}</h1>
 
+        <form action="{% url 'watch_stock' %}"  method="post">
+            {% csrf_token %}
+            <input type="hidden" name="ticker" value="{{ api.symbol }}">
+            <button type="submit" class="btn btn-link" >Watch</button>
+        </form>
+
         Symbol: {{ api.symbol }}<br/>
         Price: ${{ api.latestPrice }}<br/>
         Change: {{ api.change }}<br/>
