@@ -3,6 +3,8 @@
 
 <h1>Watch Stock</h1>
 
+{% if user.is_authenticated %}
+
 <form action="{% url 'watch_stock' %}" class="form-inline my-2 my-lg-0" method="POST">
     {% csrf_token %}
     <input class="form-control mr-sm-2" type="search" placeholder="Add ticker to watchlist" aria-label="Search" name="ticker">
@@ -52,5 +54,9 @@
 <br/>
 <br/>
 
+{% else %}
+  <p>Login to watch stock</p>
+  <a href="{% url 'login' %}">Log In</a>
+{% endif %}
 
 {% endblock %}
