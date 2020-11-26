@@ -31,11 +31,11 @@
                   {{ user.username }}
                 </li>
                 <li class="nav-item"> 
-                  <a class="nav-link" href="{% url 'logout' %}">Log out</a>
+                  <a class="nav-link" href="{% url 'logout' %}">logout</a>
                 </li>
                 {% else %}
                   <li class="nav-item"> 
-                  <a class="nav-link" href="{% url 'login' %}">Log in</a>
+                  <a class="nav-link" href="{% url 'login' %}">login</a>
                 </li>
                 {% endif %}
               </li>

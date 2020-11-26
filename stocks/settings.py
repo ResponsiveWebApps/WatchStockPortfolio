@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 # Temp security 
-from .secrets import SecretKey
+from .secrets import *
 
 from pathlib import Path
 
