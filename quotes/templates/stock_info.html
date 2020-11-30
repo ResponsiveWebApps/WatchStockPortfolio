@@ -15,7 +15,7 @@
 
         <form action="{% url 'watch_stock' %}"  method="post">
             {% csrf_token %}
-            <input type="hidden" name="ticker" value="{{ api.symbol }}">
+            <input type="hidden" name="ticker" value="{{ api.symbol.lower }}">
             <button type="submit" class="btn btn-link" >Watch</button>
         </form>
 
