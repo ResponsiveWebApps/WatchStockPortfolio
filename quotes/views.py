@@ -5,6 +5,8 @@ from django.contrib import messages
 # for post requests
 import requests
 import json
+# Needed for User
+from django.contrib.auth.models import User
 
 def home(request):
     
@@ -57,7 +59,7 @@ def watch_stock(request):
            return redirect('watch_stock')
 
     else:
-        ticker = Stock.objects.all()
+        ticker = Stock.objects.filter(user=request.user)
         output = []
 
         for ticker_item in ticker:

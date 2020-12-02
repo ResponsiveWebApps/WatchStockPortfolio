@@ -8,7 +8,7 @@ def get_sentinel_user():
 
 class Stock(models.Model):
     ticker = models.CharField(max_length=10)
-    user = models.ForeignKey(User, on_delete=models.SET(get_sentinel_user))
+    user = models.ForeignKey(User, on_delete=models.SET(get_sentinel_user), null=True)
     def __str__(self):
         return self.ticker
 
